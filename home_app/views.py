@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
-from django.contrib import messages
+from django.contrib import messages, auth
+from django.contrib.auth import logout
 
 # Create your views here.
 def index(request):
@@ -28,6 +29,21 @@ def signup(request):
         else: 
             messages.info(request,"The password you entered do not match")
             
-    
     return render(request, 'registration.html')
 
+#LOGIN FUNCTION/VIEW
+def logout(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        
+        user = auth.authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request,user)
+            messages.success(request,"Logged in successfully")
+            return redirect('index')
+        else: 
+            messages.info(request,"Invalid Login Credentials")
+            return redirect('login')
+    else: 
+        return render(request,'login.html')    
