@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,27 +8,27 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Renten - Car Rental Service HTML Template</title>
   <!-- site favicon -->
-  <link rel="shortcut icon" type="image/png" href="assets/images/favicon.jpg"/>
+  <link rel="shortcut icon" type="image/png" href="{%static 'assets/images/favicon.jpg'%}"/>
   <!-- fontawesome css link -->
-  <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+  <link rel="stylesheet" href="{%static 'assets/css/fontawesome.min.css'%}">
   <!-- bootstrap css link -->
-  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{%static 'assets/css/bootstrap.min.css'%}">
   <!-- lightcase css link -->
-  <link rel="stylesheet" href="assets/css/lightcase.css">
+  <link rel="stylesheet" href="{%static 'assets/css/lightcase.css'%}">
   <!-- animate css link -->
-  <link rel="stylesheet" href="assets/css/animate.css">
+  <link rel="stylesheet" href="{%static 'assets/css/animate.css'%}">
   <!-- nice select css link -->
-  <link rel="stylesheet" href="assets/css/nice-select.css">
+  <link rel="stylesheet" href="{%static 'assets/css/nice-select.css'%}">
   <!-- datepicker css link -->
-  <link rel="stylesheet" href="assets/css/datepicker.min.css">
+  <link rel="stylesheet" href="{%static 'assets/css/datepicker.min.css'%}">
   <!-- wickedpicker css link -->
-  <link rel="stylesheet" href="assets/css/wickedpicker.min.css">
+  <link rel="stylesheet" href="{%static 'assets/css/wickedpicker.min.css'%}">
   <!-- jquery ui css link -->
-  <link rel="stylesheet" href="assets/css/jquery-ui.min.css">
+  <link rel="stylesheet" href="{%static 'assets/css/jquery-ui.min.css'%}">
   <!-- owl carousel css link -->
-  <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="{%static 'assets/css/owl.carousel.min.css'%}">
   <!-- main style css link -->
-  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="{%static 'assets/css/main.css'%}">
 </head>
 <body>
 
@@ -70,8 +71,12 @@
                 </select>
               </div>
               <div class="login-reg">
-                  <a href="#0">Sign Up</a>
-                  <a href="#0">Sign in</a>
+                {%if user.is_authenticated%}
+                      <a href="{%url 'login'%}">Login</a>
+                {%else%}
+                      <a href="#0">Sign in</a>
+                      <a href="#0">Sign Up</a>
+                {%endif%}
               </div>
             </div>
           </div>
@@ -81,7 +86,7 @@
     <div class="header-bottom">
       <div class="container">
         <nav class="navbar navbar-expand-lg p-0">
-          <a class="site-logo site-title" href="index.html"><img src="assets/images/logo1.png" alt="site-logo"><span class="logo-icon"><i class="flaticon-fire"></i></span></a>
+          <a class="site-logo site-title" href="index.html"><img src="{%static 'assets/images/logo1.png'%}" alt="site-logo"><span class="logo-icon"><i class="flaticon-fire"></i></span></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="menu-toggle"></span>
           </button>
@@ -89,22 +94,24 @@
             <ul class="navbar-nav main-menu mr-auto">
               <li class="menu_has_children"><a href="#0">Home</a>
                 <ul class="sub-menu">
-                  <li><a href="index.html">Home One</a></li>
-                  <li><a href="home-two.html">Home Two</a></li>
+                  <li><a href="{%url 'index'%}">Home One</a></li>
+                  <li><a href="{%url 'home_2'%}">Home Two</a></li>
                 </ul>
               </li>
-              <li><a href="about.html">About</a>
+              <li><a href="{%url 'about'%}">About</a>
               <li class="menu_has_children"><a href="#0">cars</a>
                 <ul class="sub-menu">
-                  <li><a href="car-list-one.html">car list one</a></li>
-                  <li><a href="car-list-two.html">car list two</a></li>
+                  <li><a href="{%url 'list1'%}">car list one</a></li>
+                  <li><a href="{%url 'list2'%}">car list two</a></li>
                 </ul>
               </li>
               <li class="menu_has_children"><a href="#0">pages</a>
                 <ul class="sub-menu">
-                  <li><a href="reservation.html">reservation</a></li>
-                  <li><a href="login.html">login</a></li>
-                  <li><a href="registration.html">registration</a></li>
+                  <li><a href="{%url 'reserve'%}">reservation</a></li>
+                  {%if user.is_authenticated%}
+                      <li><a href="{%url 'login'%}">login</a></li>
+                      <li><a href="{%url 'signup'%}">registration</a></li>
+                  {%endif%}
                   <li><a href="error-404.html">404</a></li>
                 </ul>
               </li>
@@ -124,7 +131,7 @@
   <!--  header-section end  -->
 
   <!-- inner-apge-banner start -->
-  <section class="inner-page-banner bg_img overlay-3" data-background="assets/images/inner-page-bg.jpg">
+  <section class="inner-page-banner bg_img overlay-3" data-background="{%static 'assets/images/inner-page-bg.jpg'%}">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -178,7 +185,7 @@
           <div class="car-search-result-area list--view row mb-none-30">
             <div class="col-md-6 col-12">
               <div class="car-item car-item--style2">
-                <div class="thumb bg_img" data-background="assets/images/cars/4.jpg"></div>
+                <div class="thumb bg_img" data-background="{%static 'assets/images/cars/4.jpg'%}"></div>
                 <div class="car-item-body">
                   <div class="content">
                     <h4 class="title">pajero rang</h4>
@@ -198,7 +205,7 @@
             </div><!-- car-item end -->
             <div class="col-md-6 col-12">
               <div class="car-item car-item--style2">
-                <div class="thumb bg_img" data-background="assets/images/cars/5.jpg"></div>
+                <div class="thumb bg_img" data-background="{%static 'assets/images/cars/5.jpg'%}"></div>
                 <div class="car-item-body">
                   <div class="content">
                     <h4 class="title">mirage range</h4>
@@ -218,7 +225,7 @@
             </div><!-- car-item end -->
             <div class="col-md-6 col-12">
               <div class="car-item car-item--style2">
-                <div class="thumb bg_img" data-background="assets/images/cars/6.jpg"></div>
+                <div class="thumb bg_img" data-background="{%static 'assets/images/cars/6.jpg'%}"></div>
                 <div class="car-item-body">
                   <div class="content">
                     <h4 class="title">Volkswagen</h4>
@@ -238,7 +245,7 @@
             </div><!-- car-item end -->
             <div class="col-md-6 col-12">
               <div class="car-item car-item--style2">
-                <div class="thumb bg_img" data-background="assets/images/cars/7.jpg"></div>
+                <div class="thumb bg_img" data-background="{%static 'assets/images/cars/7.jpg'%}"></div>
                 <div class="car-item-body">
                   <div class="content">
                     <h4 class="title">Rools royce</h4>
@@ -258,7 +265,7 @@
             </div><!-- car-item end -->
             <div class="col-md-6 col-12">
               <div class="car-item car-item--style2">
-                <div class="thumb bg_img" data-background="assets/images/cars/8.jpg"></div>
+                <div class="thumb bg_img" data-background="{%static 'assets/images/cars/8.jpg'%}"></div>
                 <div class="car-item-body">
                   <div class="content">
                     <h4 class="title"> Toyota</h4>
@@ -278,7 +285,7 @@
             </div><!-- car-item end -->
             <div class="col-md-6 col-12">
               <div class="car-item car-item--style2">
-                <div class="thumb bg_img" data-background="assets/images/cars/9.jpg"></div>
+                <div class="thumb bg_img" data-background="{%static 'assets/images/cars/9.jpg'%}"></div>
                 <div class="car-item-body">
                   <div class="content">
                     <h4 class="title"> Porsche</h4>
@@ -365,7 +372,7 @@
                 <div class="testimonial-slider owl-carousel">
                   <div class="testimonial-item">
                     <div class="testimonial-item--header">
-                      <div class="thumb"><img src="assets/images/testimonial/1.jpg" alt="image"></div>
+                      <div class="thumb"><img src="{%static 'assets/images/testimonial/1.jpg'%}" alt="image"></div>
                       <div class="content">
                         <h6 class="name">martin hook</h6>
                         <span class="designation">business man</span>
@@ -393,7 +400,7 @@
           <div class="col-lg-4 col-sm-8">
             <div class="footer-widget widget-about">
               <div class="widget-about-content">
-                <a href="index.html" class="footer-logo"><img src="assets/images/logo-footer.png" alt="logo"></a>
+                <a href="index.html" class="footer-logo"><img src="{%static 'assets/images/logo-footer.png'%}" alt="logo"></a>
                 <p>Lorem ipsum dolor sit amet, congue placeranec. Leo faucibus sed eleifend bibendum n vehicula nulla mauris nulla ipsum neque sed. Gravida egestas fermentum urna, velit sed. </p>
                 <ul class="social-links">
                   <li><a href="#0"><i class="fa fa-facebook"></i></a></li>
@@ -459,9 +466,9 @@
           <div class="col-sm-6">
             <ul class="payment-method d-flex justify-content-end">
               <li>We accept</li>
-              <li><img src="assets/images/money-method/1.png" alt="image"></li>
-              <li><img src="assets/images/money-method/2.png" alt="image"></li>
-              <li><img src="assets/images/money-method/3.png" alt="image"></li>
+              <li><img src="{%static 'assets/images/money-method/1.png'%}" alt="image"></li>
+              <li><img src="{%static 'assets/images/money-method/2.png'%}" alt="image"></li>
+              <li><img src="{%static 'assets/images/money-method/3.png'%}" alt="image"></li>
             </ul>
           </div>
         </div>
@@ -479,28 +486,28 @@
   <!-- scroll-to-top end -->
 
   <!-- jquery js link -->
-  <script src="assets/js/jquery-3.3.1.min.js"></script>
+  <script src="{%static 'assets/js/jquery-3.3.1.min.js'%}"></script>
   <!-- jquery migrate js link -->
-  <script src="assets/js/jquery-migrate-3.0.0.js"></script>
+  <script src="{%static 'assets/js/jquery-migrate-3.0.0.js'%}"></script>
   <!-- bootstrap js link -->
-  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="{%static 'assets/js/bootstrap.min.js'%}"></script>
   <!-- lightcase js link -->
-  <script src="assets/js/lightcase.js"></script>
+  <script src="{%static 'assets/js/lightcase.js'%}"></script>
   <!-- wow js link -->
-  <script src="assets/js/wow.min.js"></script>
+  <script src="{%static 'assets/js/wow.min.js'%}"></script>
   <!-- nice select js link -->
-  <script src="assets/js/jquery.nice-select.min.js"></script>
+  <script src="{%static 'assets/js/jquery.nice-select.min.js'%}"></script>
   <!-- datepicker js link -->
-  <script src="assets/js/datepicker.min.js"></script>
-  <script src="assets/js/datepicker.en.js"></script>
+  <script src="{%static 'assets/js/datepicker.min.js'%}"></script>
+  <script src="{%static 'assets/js/datepicker.en.js'%}"></script>
   <!-- wickedpicker js link -->
-  <script src="assets/js/wickedpicker.min.js"></script>
+  <script src="{%static 'assets/js/wickedpicker.min.js'%}"></script>
   <!-- owl carousel js link -->
-  <script src="assets/js/owl.carousel.min.js"></script>
+  <script src="{%static 'assets/js/owl.carousel.min.js'%}"></script>
   <!-- jquery ui js link -->
-  <script src="assets/js/jquery-ui.min.js"></script>
+  <script src="{%static 'assets/js/jquery-ui.min.js'%}"></script>
   <!-- main js link -->
-  <script src="assets/js/main.js"></script>
+  <script src="{%static 'assets/js/main.js'%}"></script>
 </body>
 
 

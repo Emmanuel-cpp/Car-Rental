@@ -59,3 +59,6 @@ def carList1(request):
     return render(request, 'car-list-one.html')
 def carList2(request):
     return render(request, 'car-list-two.html')
+
+def reservation(request):
+    return render(request, 'reservation.html')

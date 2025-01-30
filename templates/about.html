@@ -104,9 +104,11 @@
               </li>
               <li class="menu_has_children"><a href="#0">pages</a>
                 <ul class="sub-menu">
-                  <li><a href="reservation.html">reservation</a></li>
+                  <li><a href="{%url 'reserve'%}">reservation</a></li>
+                  {%if user.is_authenticated%}
                   <li><a href="login.html">login</a></li>
                   <li><a href="registration.html">registration</a></li>
+                  {%endif%}
                   <li><a href="error-404.html">404</a></li>
                 </ul>
               </li>
