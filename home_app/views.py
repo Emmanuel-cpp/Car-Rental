@@ -13,8 +13,8 @@ def logout(request):
 
 def signup(request):
     if request.method == 'POST':
-        firstname = request.POST['firstname']
-        lastname = request.POST['lastname']
+        firstname = request.POST['firstname'].title()
+        lastname = request.POST['lastname'].title()
         email = request.POST['email']
         password = request.POST['password1']
         password1 = request.POST['password2']
@@ -51,3 +51,11 @@ def login(request):
 
 def home_2(request):
     return render(request,'home-two.html')    
+
+def about(request):
+    return render(request, 'about.html')
+
+def carList1(request):
+    return render(request, 'car-list-one.html')
+def carList2(request):
+    return render(request, 'car-list-two.html')
