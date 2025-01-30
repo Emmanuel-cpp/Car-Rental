@@ -48,3 +48,6 @@ def login(request):
             return redirect('login')
     else: 
         return render(request,'login.html')    
+
+def home_2(request):
+    return render(request,'home-two.html')    
