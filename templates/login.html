@@ -150,7 +150,12 @@
           <div class="login-block text-center">
             <div class="login-block-inner">
               <h3 class="title">login your account </h3>
-              <form class="login-form">
+             
+              <form method="POST" action="#" class="login-form">
+                {% for message in messages%}
+                    {{message}}
+                {%endfor%}
+                {% csrf_token %}
                 <div class="frm-group text-center">
                   <a href="#0" class="facebook">facebook</a>
                   <a href="#0" class="google">google plus</a>
@@ -160,10 +165,10 @@
                   <span class="or">or</span>
                 </div>
                 <div class="frm-group">
-                  <input type="text" name="f-name" id="f-name" placeholder="Your Name">
+                  <input type="text" name="username" id="f-name" placeholder="Your Name" required>
                 </div>
                 <div class="frm-group">
-                  <input type="password" name="pass" id="pass" placeholder="Your Password">
+                  <input type="password" name="password" id="pass" placeholder="Your Password" required>
                 </div>
                 <div class="frm-group">
                   <input type="submit" value="login account">

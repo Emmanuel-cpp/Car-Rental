@@ -7,8 +7,9 @@ from django.contrib.auth import logout
 def index(request):
     return render(request, 'index.html')
 
-def login(request):
-    return render(request, 'login.html')
+def logout(request):
+    auth.logout(request)
+    return redirect('login')
 
 def signup(request):
     if request.method == 'POST':
@@ -32,14 +33,14 @@ def signup(request):
     return render(request, 'registration.html')
 
 #LOGIN FUNCTION/VIEW
-def logout(request):
+def login(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
         
         user = auth.authenticate(request, username=username, password=password)
         if user is not None:
-            login(request,user)
+            auth.login(request,user)
             messages.success(request,"Logged in successfully")
             return redirect('index')
         else: 
