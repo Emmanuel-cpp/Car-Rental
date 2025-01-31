@@ -109,10 +109,10 @@
                   {%if user.is_authenticated%}
                       <li><a href="{%url 'reserve'%}">reservation</a></li>
                       <li><a href="{%url 'error404'%}">404</a></li>
+                  {%else%}
+                      <li><a href="login.html">login</a></li>
+                      <li><a href="registration.html">registration</a></li>
                   {%endif%}
-                  <li><a href="login.html">login</a></li>
-                  <li><a href="registration.html">registration</a></li>
-                 
                 </ul>
               </li>
               <li class="menu_has_children"><a href="#0">blog</a>
@@ -121,7 +121,7 @@
                   <li><a href="{%url 'blog_details'%}">blog details</a></li>
                 </ul>
               </li>
-              <li><a href="contact.html">contact us</a></li>
+              <li><a href="{%url 'contact'%}">contact us</a></li>
             </ul>
           </div>
         </nav>

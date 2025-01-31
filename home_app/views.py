@@ -71,3 +71,6 @@ def blog(request):
 
 def blog_details(request):
     return render(request, 'blog-details.html')
+
+def contact(request):
+    return render(request, 'contact.html')

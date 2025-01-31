@@ -104,21 +104,23 @@
               </li>
               <li class="menu_has_children"><a href="#0">pages</a>
                 <ul class="sub-menu">
-                  <li><a href="{%url 'reserve'%}">reservation</a></li>
+                  
                   {%if user.is_authenticated%}
-                  <li><a href="login.html">login</a></li>
-                  <li><a href="registration.html">registration</a></li>
+                      <li><a href="{%url 'error404'%}">404</a></li>
+                      <li><a href="{%url 'reserve'%}">reservation</a></li>
+                  {%else%}
+                      <li><a href="login.html">login</a></li>
+                      <li><a href="registration.html">registration</a></li>
                   {%endif%}
-                  <li><a href="error-404.html">404</a></li>
                 </ul>
               </li>
               <li class="menu_has_children"><a href="#0">blog</a>
                 <ul class="sub-menu">
-                  <li><a href="blog.html">blog page</a></li>
-                  <li><a href="blog-details.html">blog details</a></li>
+                  <li><a href="{%url 'blog'%}">blog page</a></li>
+                  <li><a href="{%url 'blog_details' %}">blog details</a></li>
                 </ul>
               </li>
-              <li><a href="contact.html">contact us</a></li>
+              <li><a href="{%url 'contact'%}">contact us</a></li>
             </ul>
           </div>
         </nav>
