@@ -23,6 +23,7 @@ class Car(models.Model):
     description = models.TextField
     is_rented = models.BooleanField
     rented_by = models.ForeignKey(Person, related_name='cars_app', on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='cars_image', blank=True)
     
     
     
