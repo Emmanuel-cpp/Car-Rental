@@ -62,3 +62,12 @@ def carList2(request):
 
 def reservation(request):
     return render(request, 'reservation.html')
+
+def error404(request):
+    return render(request, 'error-404.html')
+
+def blog(request):
+    return render(request, 'blog.html')
+
+def blog_details(request):
+    return render(request, 'blog-details.html')

@@ -72,7 +72,7 @@
               </div>
               <div class="login-reg">
                 {%if user.is_authenticated%}
-                    <a href="{%url 'login'%}">Login</a>
+                    <a href="{%url 'logout'%}">Logout</a>
                 {%else%}
                     <a href="#0">Sign Up</a>
                     <a href="#0">Sign in</a>
@@ -107,10 +107,15 @@
               </li>
               <li class="menu_has_children"><a href="#0">pages</a>
                 <ul class="sub-menu">
-                  <li><a href="reservation.html">reservation</a></li>
-                  <li><a href="login.html">login</a></li>
-                  <li><a href="registration.html">registration</a></li>
-                  <li><a href="error-404.html">404</a></li>
+                  
+                  {%if user.is_authenticated%}
+                     <li><a href="{%url 'reserve'%}">reservation</a></li>
+                     <li><a href="{%url 'error404'%}">404</a></li>
+                  {%else%}
+                      <li><a href="login.html">login</a></li>
+                      <li><a href="registration.html">registration</a></li>
+                  {%endif%}
+                  
                 </ul>
               </li>
               <li class="menu_has_children"><a href="#0">blog</a>
